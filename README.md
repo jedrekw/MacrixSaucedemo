@@ -15,6 +15,6 @@ Install-nuget Packages:
 	Microsoft.Extensions.Configuration.Binder (v8.0.0)
 	Selenium.Support (v4.10.0)
 
-To run from terminal use command "dotnet test" while in project folder (/Macrix)
+to run from terminal use command "dotnet test" while in project folder (/Macrix)
 
 
