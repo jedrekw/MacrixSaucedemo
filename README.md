@@ -3,9 +3,8 @@ An example project in C# and Specflow
 
 Dependencies to install:
 
-.NET 6.0 Runtime (v6.0.20)
-
-Specflow plugin for your IDE (I used Rider)
+    .NET 6.0 Runtime (v6.0.20)
+    Specflow plugin for your IDE (I used Rider)
 
 Install-nuget Packages:
 
@@ -19,6 +18,6 @@ Install-nuget Packages:
 	Selenium.Support (v4.10.0)
 
 
-To run from terminal use command "dotnet test" while in project folder (/Macrix)
+To run from terminal use command "dotnet test" while in project folder (./Macrix)
 
 
