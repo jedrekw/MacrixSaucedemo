@@ -13,3 +13,9 @@ Scenario: Log in and buy 2 products
 	And Products should be displayed on confirmation screen
 	When Finish Checkout
 	Then The Checkout should be Successfully Processed
+	
+Scenario: Check Locked-out user can't login
+	Given User opens browser on homepage
+	When Log in with Locked-out User
+	Then Assert Locked-out user can't login
+	

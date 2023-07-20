@@ -1,6 +1,7 @@
 {
     "BrowserName": "Chrome",
-    "BaseUrl":  "https://www.saucedemo.com/",
+    "BaseUrl": "https://www.saucedemo.com/",
     "UsernameStd":  "standard_user",
-    "Password":  "secret_sauce",
+    "UsernameLocked":  "locked_out_user",
+    "Password":  "secret_sauce"
 }

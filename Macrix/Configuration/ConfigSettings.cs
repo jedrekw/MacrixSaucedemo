@@ -6,5 +6,6 @@ namespace Macrix.Configuration
         public string BaseUrl { get; set; }
         public string UsernameStd { get; set; }
         public string Password { get; set; }
+        public string UsernameLocked { get; set; }
     }
 }

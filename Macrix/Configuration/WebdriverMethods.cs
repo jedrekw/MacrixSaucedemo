@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
@@ -33,12 +34,17 @@ public sealed class Mth
     
     public static void AssertPageContains(string text)
     {
-        GetWebdriver().FindElement(By.TagName("body")).Text.Contains(text);
+        Assert.IsTrue(GetWebdriver().FindElement(By.TagName("body")).Text.Contains(text));
     }
     
     public static void AssertPageContains(double text)
     {
-        GetWebdriver().FindElement(By.TagName("body")).Text.Contains(text.ToString());
+        Assert.IsTrue(GetWebdriver().FindElement(By.TagName("body")).Text.Contains(text.ToString()));
+    }
+    
+    public static void AssertElementContains(By locator, string text)
+    {
+        Assert.IsTrue(GetWebdriver().FindElement(locator).Text.Contains(text));
     }
     
     

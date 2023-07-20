@@ -19,6 +19,18 @@ public sealed class StepDefinitions
        LoginPage.LogInWithStandardUser();
    }
    
+   [When(@"Log in with Locked-out User")]
+   public void WhenLogsInWithLockedOutUser()
+   {
+       LoginPage.LogInWithLockedOutUser();
+   }
+   
+   [Then(@"Assert Locked-out user can't login")]
+   public void ThenAssertLockedOutUserCantLogIn()
+   {
+       LoginPage.AssertLockedOutUserCantLogIn();
+   }
+   
    [When(@"Add two products to cart")]
    public void WhenAdds2Products()
    {
