@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using NUnit.Framework;
 using OpenQA.Selenium;
 namespace Macrix.Configuration;
 
@@ -10,6 +11,7 @@ public sealed class MainPage
     private static readonly By ItemNameElements = By.ClassName("inventory_item_name");
     private static readonly By GoToCartButton = By.CssSelector(".shopping_cart_link");
     private static readonly By CartContainer = By.CssSelector(".cart_list");
+    private static readonly By SortingDropdown = By.ClassName("product_sort_container");
 
     public static double Element1Price;
     public static double Element2Price;
@@ -51,5 +53,48 @@ public sealed class MainPage
     {
         Mth.Click(GoToCartButton, 10);
         Mth.WaitUntilVisible(CartContainer, 10);
+    }
+    
+    public static void SelectSortingAZ()
+    {
+        Mth.Select(SortingDropdown,  "Name (A to Z)", 10);
+    }
+    
+    public static void SelectSortingZA()
+    {
+        Mth.Select(SortingDropdown,  "Name (Z to A)", 10);
+    }
+    
+    public static bool CheckIfProductsAreSortedByName(bool Descending)
+    {
+        List<string> ProductNames = new List<string>();
+        ReadOnlyCollection<IWebElement> itemElements = Mth.GetWebdriver().FindElements(ItemNameElements);
+        foreach (IWebElement element in itemElements)
+        {
+            ProductNames.Add(element.Text);
+        }
+        
+        List<string> ProductNamesOriginal = ProductNames;
+        ProductNames.Sort();
+        if (Descending)
+        {
+            ProductNames.Reverse();
+        }
+        
+        if (ProductNamesOriginal.SequenceEqual(ProductNames))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public static void CheckIfProductsAreSortedCorrectlyAscendingAZ()
+    {
+        Assert.True(CheckIfProductsAreSortedByName(false));
+    }
+    
+    public static void CheckIfProductsAreSortedCorrectlyDescendingZA()
+    {
+        Assert.True(CheckIfProductsAreSortedByName(true));
     }
 }

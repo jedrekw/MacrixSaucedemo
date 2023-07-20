@@ -14,6 +14,18 @@ Scenario: Log in and buy 2 products
 	When Finish Checkout
 	Then The Checkout should be Successfully Processed
 	
+Scenario: Check sorting A-Z for Standard user
+	Given User opens browser on homepage
+	And Log in with Standard User
+	When Sorting A-Z is selected
+	Then Elements should be properly sorted Ascending A-Z
+
+Scenario: Check sorting Z-A for Standard user
+	Given User opens browser on homepage
+	And Log in with Standard User
+	When Sorting Z-A is selected
+	Then Elements should be properly sorted Descending Z-A
+			
 Scenario: Check Locked-out user can't login
 	Given User opens browser on homepage
 	When Log in with Locked-out User

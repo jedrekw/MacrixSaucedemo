@@ -32,6 +32,12 @@ public sealed class Mth
         WaitUntilVisible(locator, timeout).SendKeys(text);
     }
     
+    public static void Select(By locator, String OptionText, double timeout=DefaultTimeout)
+    {
+        SelectElement dropDown = new SelectElement(GetWebdriver().FindElement(locator));
+        dropDown.SelectByText(OptionText);
+    }
+    
     public static void AssertPageContains(string text)
     {
         Assert.IsTrue(GetWebdriver().FindElement(By.TagName("body")).Text.Contains(text));

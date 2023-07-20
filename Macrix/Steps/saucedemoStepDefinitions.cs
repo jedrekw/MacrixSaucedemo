@@ -85,4 +85,31 @@ public sealed class StepDefinitions
    {
       CheckoutPage.CheckIfCheckoutSuccessfullyProcessed();
    }
+    
+    [When(@"Sorting A-Z is selected")]
+    public void WhenSelectSortingAZ()
+    {
+        MainPage.SelectSortingAZ();
+        Mth.Sleep(1);
+    }
+    
+    [When(@"Sorting Z-A is selected")]
+    public void WhenSelectSortingZA()
+    {
+        MainPage.SelectSortingZA();
+        Mth.Sleep(1);
+    }
+    
+    [Then(@"Elements should be properly sorted Ascending A-Z")]
+    public void ThenCheckIfProductsAreSortedCorrectlyAZ()
+    {
+        MainPage.CheckIfProductsAreSortedCorrectlyAscendingAZ();
+    }
+    
+    [Then(@"Elements should be properly sorted Descending Z-A")]
+    public void ThenCheckIfProductsAreSortedCorrectlyZA()
+    {
+        MainPage.CheckIfProductsAreSortedCorrectlyDescendingZA();
+    }
+
 }

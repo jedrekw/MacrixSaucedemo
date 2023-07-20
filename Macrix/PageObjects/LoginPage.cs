@@ -41,7 +41,7 @@ public sealed class LoginPage
         Mth.SendKeys(PasswordField, password, 10);
         Mth.Click(LoginSubmitButton, 10);
     }
-    
+
     public static void AssertLockedOutUserCantLogIn()
     {
         Mth.WaitUntilVisible(LoginErrorContainer, 10);
