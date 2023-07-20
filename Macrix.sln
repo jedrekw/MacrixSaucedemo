@@ -1,0 +1,13 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Macrix", "Macrix\Macrix.csproj", "{A0F9C6F5-631C-48C2-A037-58E00F80EDBC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Macrix|Any CPU = Macrix|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0F9C6F5-631C-48C2-A037-58E00F80EDBC}.Macrix|Any CPU.ActiveCfg = Macrix|Any CPU
+		{A0F9C6F5-631C-48C2-A037-58E00F80EDBC}.Macrix|Any CPU.Build.0 = Macrix|Any CPU
+	EndGlobalSection
+EndGlobal
