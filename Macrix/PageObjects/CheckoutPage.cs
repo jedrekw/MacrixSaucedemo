@@ -5,7 +5,6 @@ using NUnit.Framework;
 
 namespace Macrix.Configuration;
 
-[Binding]
 public sealed class CheckoutPage
 {
     private static readonly By CheckoutFirstNameField = By.Id("first-name");

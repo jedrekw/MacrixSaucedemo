@@ -6,7 +6,7 @@ Dependencies to install:
     .NET 6.0 Runtime (v6.0.20)
     Specflow plugin for your IDE (I used Rider)
 
-Install-nuget Packages:
+Install nuget Packages:
 
 	NUnit2TestAdapter (v4.1.0)
 	Selenium.WebDriver (v4.10.0)
@@ -18,6 +18,6 @@ Install-nuget Packages:
 	Selenium.Support (v4.10.0)
 
 
-To run from terminal use command "dotnet test" while in project folder (./Macrix)
+To run from command line - use command "dotnet test" when in project folder (./Macrix)
 
 

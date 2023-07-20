@@ -1,7 +1,6 @@
 using OpenQA.Selenium;
 namespace Macrix.Configuration;
 
-[Binding]
 public sealed class CartPage
 {
     private static readonly By CheckoutButton = By.Id("checkout");

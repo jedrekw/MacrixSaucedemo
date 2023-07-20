@@ -1,7 +1,6 @@
 using OpenQA.Selenium;
 namespace Macrix.Configuration;
 
-[Binding]
 public sealed class LoginPage
 {
     private static readonly By LoginField = By.Id("user-name");

@@ -5,7 +5,6 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 namespace Macrix.Configuration;
 
-[Binding]
 public sealed class MainPage
 {
     private static readonly By ItemNameElements = By.ClassName("inventory_item_name");

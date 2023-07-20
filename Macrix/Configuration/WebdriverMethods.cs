@@ -4,7 +4,6 @@ using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 namespace Macrix.Configuration;
 
-[Binding]
 public sealed class Mth
 {
     private static IWebDriver _webDriver;
@@ -52,7 +51,6 @@ public sealed class Mth
     {
         Assert.IsTrue(GetWebdriver().FindElement(locator).Text.Contains(text));
     }
-    
     
     public static void Sleep(int timeout)
     {
