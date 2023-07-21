@@ -1,4 +1,6 @@
-﻿namespace Macrix.Steps;
+﻿using Macrix.PageObjects;
+
+namespace Macrix.Steps;
  using Macrix.Configuration;
  using TechTalk.SpecFlow;
 
@@ -35,6 +37,7 @@ public sealed class StepDefinitions
    public void WhenAdds2Products()
    {
        MainPage.Add2Products();
+       Mth.Sleep(1);
    }
    
    [When(@"Go to cart")]

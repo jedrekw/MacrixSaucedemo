@@ -1,9 +1,9 @@
 using System.Collections.ObjectModel;
-using System.Globalization;
-using System.Text.RegularExpressions;
+using Macrix.Configuration;
 using NUnit.Framework;
 using OpenQA.Selenium;
-namespace Macrix.Configuration;
+
+namespace Macrix.PageObjects;
 
 public sealed class MainPage
 {
@@ -17,6 +17,7 @@ public sealed class MainPage
     public static double SumOfPurchases;
     public static readonly string ProductName1st = "Sauce Labs Bike Light";
     public static readonly string ProductName2nd = "Sauce Labs Bolt T-Shirt";
+    
     public static void Add2Products()
     {
         IWebElement element1 = null;
@@ -34,13 +35,13 @@ public sealed class MainPage
             .FindElement(By.XPath(".//button[text()='Add to cart']"));
         IWebElement element1PriceLoc = element1.FindElement(By.XPath("./../../.."))
             .FindElement(By.XPath(".//div[@Class= 'inventory_item_price']"));
-        Element1Price = double.Parse(Regex.Match(element1PriceLoc.Text, @"[0-9]{0,3}(\.[0-9]{0,2})").Value, CultureInfo.InvariantCulture);
+        Element1Price = Mth.ParsePrice(element1PriceLoc);
 
         IWebElement element2AddToCart = element2.FindElement(By.XPath("./../../.."))
             .FindElement(By.XPath(".//button[text()='Add to cart']"));
         IWebElement element2PriceLoc = element2.FindElement(By.XPath("./../../.."))
             .FindElement(By.XPath(".//div[@Class= 'inventory_item_price']"));
-        Element2Price = double.Parse(Regex.Match(element2PriceLoc.Text, @"[0-9]{0,3}(\.[0-9]{0,2})").Value, CultureInfo.InvariantCulture);
+        Element2Price = Mth.ParsePrice(element2PriceLoc);
 
         element1AddToCart.Click();
         element2AddToCart.Click();

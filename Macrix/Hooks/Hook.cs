@@ -35,13 +35,12 @@ namespace Macrix.Hooks
             {
                 case "chrome":
                     _webDriver = new ChromeDriver();
-                    _webDriver.Manage().Window.Maximize();
                     break;
                 case "firefox":
                     _webDriver = new FirefoxDriver();
-                    _webDriver.Manage().Window.Maximize();
                     break;
             }
+            _webDriver.Manage().Window.Maximize();
             _container.RegisterInstanceAs<IWebDriver>(_webDriver);
         }
         

@@ -1,3 +1,5 @@
+using System.Globalization;
+using System.Text.RegularExpressions;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -55,6 +57,11 @@ public sealed class Mth
     public static void Sleep(int timeout)
     {
         Thread.Sleep((timeout*1000));
+    }
+    
+    public static double ParsePrice(IWebElement element)
+    {
+        return double.Parse(Regex.Match(element.Text, @"[0-9]{0,3}(\.[0-9]{0,2})").Value, CultureInfo.InvariantCulture);
     }
     
 }

@@ -1,9 +1,8 @@
-using System.Globalization;
-using System.Text.RegularExpressions;
-using OpenQA.Selenium;
+using Macrix.Configuration;
 using NUnit.Framework;
+using OpenQA.Selenium;
 
-namespace Macrix.Configuration;
+namespace Macrix.PageObjects;
 
 public sealed class CheckoutPage
 {
@@ -32,11 +31,11 @@ public sealed class CheckoutPage
     
     public static void CheckIfSumOfPurchasesIsCorrect()
     {
-        double SummarySubtotalPrice = double.Parse(Regex.Match(Mth.WaitUntilVisible(SummarySubtotalPriceLabel, 10).Text, @"[0-9]{0,3}(\.[0-9]{0,2})").Value, CultureInfo.InvariantCulture);
+        double SummarySubtotalPrice = Mth.ParsePrice(Mth.WaitUntilVisible(SummarySubtotalPriceLabel));
         Assert.AreEqual(SummarySubtotalPrice, MainPage.SumOfPurchases);
-        
-        double SummaryTaxValue = double.Parse(Regex.Match(Mth.WaitUntilVisible(SummaryTaxLabel, 10).Text, @"[0-9]{0,3}(\.[0-9]{0,2})").Value, CultureInfo.InvariantCulture);
-        double SummaryTotalPrice = double.Parse(Regex.Match(Mth.WaitUntilVisible(SummaryTotalPriceLabel, 10).Text, @"[0-9]{0,3}(\.[0-9]{0,2})").Value, CultureInfo.InvariantCulture);
+
+        double SummaryTaxValue = Mth.ParsePrice(Mth.WaitUntilVisible(SummaryTaxLabel));
+        double SummaryTotalPrice = Mth.ParsePrice(Mth.WaitUntilVisible(SummaryTotalPriceLabel));
         
         double TotalPriceWithTax = Math.Round((SummarySubtotalPrice + SummaryTaxValue), 2, MidpointRounding.AwayFromZero);
 

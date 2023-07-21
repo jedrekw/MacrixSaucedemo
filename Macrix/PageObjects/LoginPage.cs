@@ -1,5 +1,7 @@
+using Macrix.Configuration;
 using OpenQA.Selenium;
-namespace Macrix.Configuration;
+
+namespace Macrix.PageObjects;
 
 public sealed class LoginPage
 {
